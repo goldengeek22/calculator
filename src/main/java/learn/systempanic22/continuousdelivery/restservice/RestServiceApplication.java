@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RestServiceApplication {
 
+    //private static final String constant = "constant";
+
     public static void main(String[] args) {
         SpringApplication.run(RestServiceApplication.class, args);
     }
