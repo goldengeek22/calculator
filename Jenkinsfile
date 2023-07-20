@@ -1,5 +1,5 @@
 pipeline{
-    agent any
+    agent { label 'java-docker-agents' }
     triggers {
         pollSCM('* * * * *')
     }
@@ -39,5 +39,12 @@ pipeline{
                    )
             }
         }
+    }
+    post {
+        always {
+            mail to: 'team@company.com',
+               subject: "Completed Pipeline: ${currentBuild.fullDisplayName}",
+                body: "Your build completed, please check: ${env.BUILD_URL}"
+    }
     }
 }
